@@ -1,0 +1,160 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Incident Report
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- ALA colors:
+#91993c;
+#bc4a26 -->
+<ion-content>
+  <form [formGroup]="incidentReport" (ngSubmit)="logForm()">
+    <ion-grid text-wrap>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Date: *</ion-label>
+            <ion-datetime formControlName="incidentDate" display-format="MMM DD, YYYY"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>Time: *</ion-label>
+            <ion-datetime formControlName="incidentTime" displayFormat="h:mm a"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label stacked>Location of Incident: *</ion-label>
+          <ion-input style="background-color: #91993c;border-radius: 7px;" type="text" formControlName="location"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label stacked>Description of Incident: *</ion-label>
+          <ion-textarea style="background-color: #91993c;border-radius: 7px;" rows="4" formControlName="descIncident"></ion-textarea>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label stacked>Description of Injury:</ion-label>
+          <ion-input style="background-color: #91993c;border-radius: 7px;" type="text" formControlName="descInjury"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Who Responded to Incident?</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let responder of [0, 1, 2, 3]">
+        <ion-col>
+          <ion-label>{{ this.responderElements[responder].val }}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-checkbox class="box-height" value="{{ this.responderElements[responder].val }}"
+            [(ngModel)]="this.responderElements[responder].isChecked" formControlName="{{
+                        this.responderElements[responder].responseTeam
+                      }}"></ion-checkbox>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label stacked>Did injured person(s) receive Medical attention on-site?</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-radio-group name="onsiteMedical" formControlName="onsiteMedical">
+          <ion-col>
+            <ion-label>Yes</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-radio style="background-color: #91993c;border-radius: 25px;" value="yes"></ion-radio>
+          </ion-col>
+          <ion-col>
+            <ion-label>No</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-radio style="background-color: #91993c;border-radius: 25px;" value="no"></ion-radio>
+          </ion-col>
+        </ion-radio-group>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label stacked>Did injured person(s) go to a doctor or hospital immedately after the incident?</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-radio-group name="goToDoc" formControlName="goToDoc">
+          <ion-col>
+            <ion-label>Yes</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-radio style="background-color: #91993c;border-radius: 25px;" value="yes"></ion-radio>
+          </ion-col>
+          <ion-col>
+            <ion-label>No</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-radio style="background-color: #91993c;border-radius: 25px;" value="no"></ion-radio>
+          </ion-col>
+        </ion-radio-group>
+      </ion-row>
+
+      <ion-row style="border-bottom: 1px solid #91993c; !important;">
+      </ion-row>
+
+      <ion-row text-center>
+        <ion-col class="info-text">
+          If anyone took photos/video of the incident scene, please email to Patty. <a href="mailto:polejnik@alanet.org">(polejnik@alanet.org)</a>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="border-bottom: 1px solid #91993c; !important;">
+        </ion-row>
+  
+
+      <ion-row>
+        <ion-col>
+          <ion-label stacked>Person taking photos/video:</ion-label>
+          <ion-input style="background-color: #91993c;border-radius: 7px;" type="text" formControlName="photoInfo"></ion-input>
+        </ion-col>
+      </ion-row>      
+
+      <ion-row>
+        <ion-col>
+            <ion-label>Date Report Prepared:</ion-label>
+            <ion-datetime style="background-color: #91993c;border-radius: 7px;" formControlName="incidentReportedDate" display-format="MMM DD, YYYY"></ion-datetime>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label stacked>Staff Person Preparing this Report:</ion-label>
+          <ion-input style="background-color: #91993c;border-radius: 7px;" type="text" formControlName="reporterName"></ion-input>
+        </ion-col>
+      </ion-row>  
+      <ion-row>
+          <ion-col>
+            <ion-label>* required</ion-label>
+          </ion-col>
+        </ion-row>  
+
+      <ion-row>
+        <ion-col>
+          <ion-button [disabled]="!incidentReport.valid" type="submit">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+      <!-- [disabled]="!incidentReport.valid" -->
+    </ion-grid>
+  </form>
+
+</ion-content>

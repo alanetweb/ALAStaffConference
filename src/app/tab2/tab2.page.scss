@@ -1,0 +1,24 @@
+agm-map { height: 100%; /* height is required */ }
+.contentSizeLarge {
+    font-size: 20px;
+    text-align: center;
+    color: #91993c;
+  }
+
+  ion-item {
+    --min-height: 400px 
+  }
+
+  ion-button {
+    --background: #91993c
+  }
+
+
+  ion-content {
+
+ion-row {
+  position: absolute;
+  bottom: 0;
+}
+
+  }

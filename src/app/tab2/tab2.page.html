@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Maps
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding-top>
+    <!-- style="margin-top: 2px !important"  -->
+   <!--  <agm-map [latitude]='latitude' [longitude]='longitude' [zoom]='zoom'
+    [mapTypeId]='mapType'>
+  </agm-map>      -->
+
+  <div style="text-align: center">
+
+  <ion-label class="contentSizeLarge" [hidden]=this.ishidden1><Strong>RESORT OVERVIEW</Strong></ion-label>
+  <ion-label class="contentSizeLarge" [hidden]=this.ishidden2><Strong>BALLROOM LEVEL</Strong> <br><br><br></ion-label>
+  <ion-label class="contentSizeLarge" [hidden]=this.ishidden3><Strong>EXHIBIT HALL LEVEL</Strong> <br><br><br><br></ion-label>
+ 
+  <img [hidden]=this.ishidden1 src="assets/maps/site/GT_HotelMap.full.svg" alt="" height="auto" width="90%">
+  <img [hidden]=this.ishidden2 src="assets/maps/ballroom-level/640FF8FA.jpg" alt="" height="auto" width="100%">
+  <img [hidden]=this.ishidden3 src="assets/maps/exhibit-hall/9125973E.jpg" alt="" height="auto" width="100%">
+
+<!--   <ion-row>
+  <ion-button [hidden]=!this.ishidden1 size="small" (click)="showMap(1)">Full Resort</ion-button>
+  <ion-button [hidden]=!this.ishidden2 size="small" (click)="showMap(2)">Ballroom Level</ion-button>
+  <ion-button [hidden]=!this.ishidden3 size="small" (click)="showMap(3)">Exhibit Hall Level</ion-button>
+  </ion-row> -->
+
+  <!-- <div style="color:#91993c; text-align: left"> switch to: <br></div> -->
+
+  <ion-row>
+      <ion-col col-6 [hidden]=!this.ishidden1><ion-button size="small" (click)="showMap(1)">Full Resort</ion-button></ion-col>
+      <ion-col col-6 [hidden]=!this.ishidden2><ion-button size="small" (click)="showMap(2)">Ballroom Level</ion-button></ion-col>
+      <ion-col col-6 [hidden]=!this.ishidden3><ion-button size="small" (click)="showMap(3)">Exhibit Hall Level</ion-button></ion-col>
+    </ion-row>
+  </div>
+
+
+</ion-content>
